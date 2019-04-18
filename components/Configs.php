@@ -164,6 +164,14 @@ class Configs extends \mdm\admin\BaseObject
         return self::$_instance;
     }
 
+    /**
+     * Clear static variable so it can be repopulated
+     */
+    public static function clearInstance()
+    {
+        self::$_instance = null;
+    }
+
     public static function __callStatic($name, $arguments)
     {
         $instance = static::instance();
