@@ -17,7 +17,7 @@ $opts = Json::htmlEncode([
     'routes' => $routes,
 ]);
 $this->registerJs("var _opts = {$opts};", \yii\web\View::POS_HEAD);
-$this->registerJsFile($asset->baseUrl.'/assignment_script.js', ['depends'=>'yii\web\JqueryAsset']);
+$this->registerJsFile($asset->baseUrl.'/route_script.js', ['depends'=>'yii\web\JqueryAsset']);
 
 $animateIcon = ' <i class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></i>';
 ?>

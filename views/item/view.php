@@ -22,7 +22,7 @@ $opts = Json::htmlEncode([
     'items' => $model->getItems(),
 ]);
 $this->registerJs("var _opts = {$opts};", \yii\web\View::POS_HEAD);
-$this->registerJsFile($asset->baseUrl.'/assignment_script.js', ['depends'=>'yii\web\JqueryAsset']);
+$this->registerJsFile($asset->baseUrl.'/item_script.js', ['depends'=>'yii\web\JqueryAsset']);
 //$this->registerJs($this->render('_script.js'));
 
 $animateIcon = ' <i class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></i>';
