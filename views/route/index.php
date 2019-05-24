@@ -11,13 +11,14 @@ use yii\web\YiiAsset;
 $this->title = Yii::t('rbac-admin', 'Routes');
 $this->params['breadcrumbs'][] = $this->title;
 
-AnimateAsset::register($this);
+$asset = AnimateAsset::register($this);
 YiiAsset::register($this);
 $opts = Json::htmlEncode([
     'routes' => $routes,
 ]);
-$this->registerJs("var _opts = {$opts};");
-$this->registerJs($this->render('_script.js'));
+$this->registerJs("var _opts = {$opts};", \yii\web\View::POS_HEAD);
+$this->registerJsFile($asset->baseUrl.'/assignment_script.js', ['depends'=>'yii\web\JqueryAsset']);
+
 $animateIcon = ' <i class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></i>';
 ?>
 <h1><?=Html::encode($this->title);?></h1>
