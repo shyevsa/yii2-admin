@@ -2,6 +2,7 @@
 
 use mdm\admin\ScriptAsset;
 use yii\helpers\Html;
+use yii\web\View;
 use yii\widgets\ActiveForm;
 use mdm\admin\models\Menu;
 use yii\helpers\Json;
@@ -16,7 +17,7 @@ $opts = Json::htmlEncode([
         'menus' => Menu::getMenuSource(),
         'routes' => Menu::getSavedRoutes(),
     ]);
-$this->registerJs("var _opts = $opts;");
+$this->registerJs("var _opts = $opts;", yii\web\View::POS_HEAD);
 $this->registerJsFile($asset->baseUrl.'/menu_script.js', ['depends'=>'yii\web\JqueryAsset']);
 
 ?>
