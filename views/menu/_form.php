@@ -1,5 +1,6 @@
 <?php
 
+use mdm\admin\ScriptAsset;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use mdm\admin\models\Menu;
@@ -9,7 +10,8 @@ use mdm\admin\AutocompleteAsset;
 /* @var $this yii\web\View */
 /* @var $model mdm\admin\models\Menu */
 /* @var $form yii\widgets\ActiveForm */
-$asset = AutocompleteAsset::register($this);
+AutocompleteAsset::register($this);
+$asset = ScriptAsset::register($this);
 $opts = Json::htmlEncode([
         'menus' => Menu::getMenuSource(),
         'routes' => Menu::getSavedRoutes(),

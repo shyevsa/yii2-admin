@@ -1,6 +1,7 @@
 <?php
 
 use mdm\admin\AnimateAsset;
+use mdm\admin\ScriptAsset;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\web\YiiAsset;
@@ -16,7 +17,8 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac-admin', $labels['Items']), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
-$asset = AnimateAsset::register($this);
+AnimateAsset::register($this);
+$asset = ScriptAsset::register($this);
 YiiAsset::register($this);
 $opts = Json::htmlEncode([
     'items' => $model->getItems(),

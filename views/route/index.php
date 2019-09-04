@@ -1,6 +1,8 @@
 <?php
 
 use mdm\admin\AnimateAsset;
+use mdm\admin\AutocompleteAsset;
+use mdm\admin\ScriptAsset;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\web\YiiAsset;
@@ -11,7 +13,8 @@ use yii\web\YiiAsset;
 $this->title = Yii::t('rbac-admin', 'Routes');
 $this->params['breadcrumbs'][] = $this->title;
 
-$asset = AnimateAsset::register($this);
+AnimateAsset::register($this);
+$asset = ScriptAsset::register($this);
 YiiAsset::register($this);
 $opts = Json::htmlEncode([
     'routes' => $routes,
